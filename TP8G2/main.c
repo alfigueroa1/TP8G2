@@ -33,10 +33,11 @@ int main(void) {
     actions[2] = &mul;
     actions[3] = &div;
     actions[4] = &expo;
-    
+    while(1) {
     input(&x,&y,&op);    //Se recibe el input del usuario
     
-    printf("Result = %f", calcRes(x,y,op)); //Se informa el resultado
+    printf("Result = %f\n", calcRes(x,y,op)); //Se informa el resultado
+    }
     return 0;
 }
 
