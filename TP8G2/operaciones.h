@@ -14,5 +14,6 @@ float mul(float a, float b);
 float div(float a, float b);
 float expo(float a, float b);
 
+
 #endif	/* OPERACIONES_H */
 

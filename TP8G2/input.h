@@ -14,7 +14,7 @@
 /*******************************************************************************
  * FUNCTION PROTOTYPES WITH GLOBAL SCOPE
  ******************************************************************************/
-void input (float *a , float *b, float *c);
+void input (float *a , float *b, char *c);
 
 
 

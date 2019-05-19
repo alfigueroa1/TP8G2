@@ -19,7 +19,7 @@
 /*******************************************************************************
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
-static int getInput(char *a, char *b, int maxlong, float *op);
+static int getInput(char *a, char *b, int maxlong, char *op);
 static float conv2float (char *num);   //Esta funcion convierte un arreglo de tipo char que contiene un numero signado a un float
 static int power(int a);                //Esta funcion devuelve 10 elevado a la a
 
@@ -28,7 +28,7 @@ static int power(int a);                //Esta funcion devuelve 10 elevado a la 
                         GLOBAL FUNCTION DEFINITIONS
  *******************************************************************************
  ******************************************************************************/
-void input (float *a , float *b, float *c) {
+void input (float *a , float *b, char *c) {
     int maxlong = 30;
     char arr1[maxlong];
     char arr2[maxlong];
@@ -38,7 +38,7 @@ void input (float *a , float *b, float *c) {
     }
     else {
         printf("\nError. Ingrese todo de nuevo.\n");
-        void input (float *a , float *b, float *c);
+        void input (float *a , float *b, char *c);
     }
     return;
 }
@@ -54,7 +54,7 @@ void input (float *a , float *b, float *c) {
 //La función guarda los números ingresados en los arreglos y el operador en la
 //variable op.
 //Devuelve un 0 si hubo un error y un 1 sino.
-static int getInput(char *a, char *b, int maxlong, float *op) {
+static int getInput(char *a, char *b, int maxlong, char *op) {
     enum estados{INIT , SIGN , ENT , DEC , OP , ERROR};
     int c, estado = INIT;
     char *p;

@@ -31,3 +31,4 @@ float expo(float a, float b){   //funca para b entero
     return c;
 }
 
+
