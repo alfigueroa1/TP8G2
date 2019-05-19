@@ -19,7 +19,7 @@
 /*******************************************************************************
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
-static int getInput(char *a, char *b, int maxlong float *op);
+static int getInput(char *a, char *b, int maxlong, float *op);
 static float conv2float (char *num);   //Esta funcion convierte un arreglo de tipo char que contiene un numero signado a un float
 static int power(int a);                //Esta funcion devuelve 10 elevado a la a
 
@@ -33,8 +33,8 @@ void input (float *a , float *b, float *c) {
     char arr1[maxlong];
     char arr2[maxlong];
     if(getInput(arr1,arr2,maxlong,c)){
-        *a = conv2float(a);
-        *b = conv2float(b);
+        *a = conv2float(arr1);
+        *b = conv2float(arr2);
     }
     else {
         printf("\nError. Ingrese todo de nuevo.\n");

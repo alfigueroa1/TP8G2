@@ -1,5 +1,8 @@
-build/Debug/Cygwin-Windows/main.o: main.c constants.h conv2float.h
+build/Debug/Cygwin-Windows/main.o: main.c constants.h input.h \
+ operaciones.h
 
 constants.h:
 
-conv2float.h:
+input.h:
+
+operaciones.h:
