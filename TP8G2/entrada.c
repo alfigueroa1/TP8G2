@@ -4,13 +4,16 @@
 #define num1(x) ((x)>='0')
 #define num2(x) ((x)<='9')
 
-
-int getInput(char *a, char *b, char *op) {
+//getInput recibe dos punteros a arreglos de caracteres, su longitud (maxlong)
+//y un puntero a una variable op para el operando.
+//La función guarda los números ingresados en los arreglos y el operador en la
+//variable op.
+//Devuelve un 0 si hubo un error y un 1 sino.
+int getInput(char *a, char *b, int maxlong char *op) {
     enum {INIT , SIGN , ENT , DEC , OP , ERROR};
     int c, estado = INIT;
     char *p;
-    
-    while((c = getchar()) != '\n') {
+    while((c = getchar()) != '\n' && maxlong--) {
         switch (estado) {
             case INIT:
                 p = a;
@@ -97,7 +100,6 @@ int getInput(char *a, char *b, char *op) {
                 break;
                 
             case ERROR:
-                printf("\nError. Ingrese de nuevo.\n");
                 estado = INIT;
                 return 0;
                 break;
@@ -108,6 +110,8 @@ int getInput(char *a, char *b, char *op) {
                 break;
         }
     }
+    if(!maxlong)
+        return 0;
     *p = '\0';
     return 1;
 }
