@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include "constants.h"
+#include "conv2float.h"
 
 float sum(float a, float b);
 float sub(float a, float b);
