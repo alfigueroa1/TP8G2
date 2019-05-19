@@ -11,7 +11,6 @@
 #include "operaciones.h"
 
 
-void getInput(float *a, float *b, char *c);
 float calcRes(float x, float y, char op);
 
 //Arreglos recomendados por la catedra
