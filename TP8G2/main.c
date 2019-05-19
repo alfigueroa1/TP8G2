@@ -7,13 +7,9 @@
 
 #include <stdio.h>
 #include "constants.h"
-#include "conv2float.h"
+#include "input.h"
+#include "operaciones.h"
 
-float sum(float a, float b);
-float sub(float a, float b);
-float mul(float a, float b);
-float div(float a, float b);
-float expo(float a, float b);
 
 void getInput(float *a, float *b, char *c);
 float calcRes(float x, float y, char op);
@@ -66,34 +62,4 @@ float calcRes(float x, float y, char op){
     return res;
 }
 
-//Esta funcion toma como parametros dos numeros del tipo float.
-//Devuelve la suma de ambos.
-float sum(float a, float b){
-    return (a + b);
-}
-//Esta funcion toma como parametros dos numeros del tipo float.
-//Devuelve la resta de ambos.
-float sub(float a, float b){
-    return (a - b);
-}
-//Esta funcion toma como parametros dos numeros del tipo float.
-//Devuelve la multiplicaicon de ambos.
-float mul(float a, float b){
-    return (a * b);
-}
-//Esta funcion toma como parametros dos numeros del tipo float.
-//Devuelve la division de ambos.
-float div(float a, float b){
-    return (a / b);
-}
-//Esta funcion toma como parametros dos numeros del tipo float.
-//Devuelve el primero elevado al segundo.
-float expo(float a, float b){   //funca para b entero
-    float c;
-    c =  a;
-    for(;b > 0; b--){
-        c = a*c;
-    }
-    return c;
-}
 

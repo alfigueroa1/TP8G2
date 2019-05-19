@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>constants.h</itemPath>
       <itemPath>conv2float.h</itemPath>
+      <itemPath>operaciones.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -44,15 +45,15 @@
       </compileType>
       <item path="constants.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="conv2float.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="conv2float.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="input.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="operaciones.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="operaciones.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -78,15 +79,15 @@
       </compileType>
       <item path="constants.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="conv2float.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="conv2float.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="input.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="operaciones.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="operaciones.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
