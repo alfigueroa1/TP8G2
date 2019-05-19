@@ -20,14 +20,15 @@ float (* actions[MAX_OPERATORS]) (float, float);
 int main(void) {
     float x,y;
     char op;
+    int quit;
     
-    //Incicializacion de arreglo Operators
+    //Inicializacion de arreglo Operators
     operators[0] = '+';
     operators[1] = '-';
     operators[2] = '*';
     operators[3] = '/';
     operators[4] = '^';
-    //Incicializacion de arreglo actions
+    //Inicializacion de arreglo actions
     actions[0] = &sum;
     actions[1] = &sub;
     actions[2] = &mul;
@@ -37,9 +38,8 @@ int main(void) {
     do {
     input(&x,&y,&op);    //Se recibe el input del usuario
     
-    printf("Result = %f", calcRes(x,y,op)); //Se informa el resultado
-    printf("Otra cuenta? Y/N");
-    } while(getchar()=='Y');
+    printf("Result = %.3f\n", calcRes(x,y,op)); //Se informa el resultado
+    } while((quit=getchar())!='q');
     return 0;
 }
 

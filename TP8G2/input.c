@@ -102,7 +102,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                     *p++ = c;
                     estado = DEC;
                 }
-                else if (c == '+' || c== '-' || c == '*' || c == '/' || c == '^' || c == 'E' || c == 'e') {
+                else if (c == '+' || c== '-' || c == '*' || c == '/' || c == 'e') {
                     estado = OP;
                     *op = c;
                 }
@@ -115,7 +115,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 if(num1(c)&&num2(c)) {
                     *p++ = c;
                 }
-                else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e' || c == 'E') {
+                else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e') {
                     estado = OP;
                     *op = c;
                 }
