@@ -34,9 +34,12 @@ int main(void) {
     actions[3] = &div;
     actions[4] = &expo;
     
+    do {
     input(&x,&y,&op);    //Se recibe el input del usuario
     
     printf("Result = %f", calcRes(x,y,op)); //Se informa el resultado
+    printf("Otra cuenta? Y/N");
+    } while(getchar()=='Y');
     return 0;
 }
 
