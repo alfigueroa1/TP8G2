@@ -75,6 +75,10 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                     *p++ = c;
                     estado = SIGN;
                 }
+                else if(c == 'X'){
+                    *op = 'X';
+                    return 1;
+                }
                 else {
                     estado = ERROR;
                 }

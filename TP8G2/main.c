@@ -19,7 +19,7 @@ float (* actions[MAX_OPERATORS]) (float, float);
 
 int main(void) {
     float x,y;
-    char op;
+    char op = 0;
     
     //Incicializacion de arreglo Operators
     operators[0] = '+';
@@ -33,10 +33,12 @@ int main(void) {
     actions[2] = &mul;
     actions[3] = &div;
     actions[4] = &expo;
-    while(1) {
-    input(&x,&y,&op);    //Se recibe el input del usuario
-    
-    printf("Result = %f\n", calcRes(x,y,op)); //Se informa el resultado
+    while(op != 'X') {
+        input(&x,&y,&op);    //Se recibe el input del usuario
+        if(op == 'X'){
+            break;
+        }
+        printf("Result = %f\n", calcRes(x,y,op)); //Se informa el resultado
     }
     return 0;
 }
