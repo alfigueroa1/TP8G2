@@ -157,6 +157,8 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
     }
     if(!maxlong)
         return 0;
+    if(!(num1(*(p-1))&&num2(*(p-1))))
+        return 0;
     *p = '\0';
     return 1;
 }
