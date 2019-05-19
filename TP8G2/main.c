@@ -19,8 +19,7 @@ char operators[MAX_OPERATORS] = {'+','-','*','/','e',};
 float (* actions[MAX_OPERATORS]) (float, float) = {sum, sub, mul, div, expo};
 
 int main(void) {
-    float x,y;
-    char op;
+    float x,y,op;
     //Incicializacion de arreglo Operators
     operators[0] = '+';
     operators[1] = '-';
@@ -34,17 +33,12 @@ int main(void) {
     actions[3] = &div;
     actions[4] = &expo;
     
-    getInput(&x,&y,&op);    //Se recibe el input del usuario
+    input(&x,&y,&op);    //Se recibe el input del usuario
     
     printf("Result = %f", calcRes(x,y,op)); //Se informa el resultado
     return 0;
 }
-//Esta funcion toma como parametros las direcciones de los dos floats usados en la operacion
-// y la operacion que se les aplicara. Luego de recibir los datos de parte del usuario,
-// escribe dichos datos en las direcciones recibidas como parametro.
-void getInput(float *x, float *y, char *op){
-    return;
-}
+
 //Esta funcion toma como parametros dos numeros del tipo float y una operacion
 // Devuelve el resultado de la operacion en tipo float
 float calcRes(float x, float y, char op){
