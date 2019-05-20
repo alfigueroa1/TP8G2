@@ -198,29 +198,29 @@ static float conv2float (char *num){
     int cant = 0;
     int dp = -1;
     float res = 0;
-    if (num[0] == '+'){
-        while((num[i] != '\0')){
-            if(num[i] == '.'){
-                dp = i;
+    if (num[0] == '+'){                                                         //Si el numero empieza con +, se lo ignora
+        while((num[i] != '\0')){                                                //Se busca la cantidad de elementos del arreglo
+            if(num[i] == '.'){                                                  //Se identifica el punto decimal, si lo hubiera
+                dp = i;                                                         //Y se lo guarda
             }
             i++;
         }
-        cant = i;
+        cant = i;                                                               //Se guarda la cantidad de elementos
         if(dp == -1){
-            dp = cant;
+            dp = cant;                                                          //Si no hay punto decimal, se lo toma al final
         }
         for(i = 1; i < dp; i++){
-            res += ((num[i]-48)* (power(dp-i-1)));
-        }
+            res += ((num[i]-48)* (power(dp-i-1)));                              //Se suman los numeros a la izquierda del decimal
+        }                                                                       //con su respectiva potencia asociada
     
         //ahora i = dp
         for(i = dp+1 ; i < cant; i++){
-            res += ((float)(num[i]-48)/ (power(i-dp)));
-        }
+            res += ((float)(num[i]-48)/ (power(i-dp)));                         //Se suman los numeros a la derecha del decimal
+        }                                                                       //con su respectiva potencia asociada
         return res;
     }
-    else if(num[0] == '-'){
-        while((num[i] != '\0')){
+    else if(num[0] == '-'){                                                     //Si el numero empieza con -
+        while((num[i] != '\0')){                                                //Se usa la misma metodologia
             if(num[i] == '.'){
                 dp = i;
             }
@@ -238,9 +238,9 @@ static float conv2float (char *num){
         for(i = dp+1 ; i < cant; i++){
             res += ((float)(num[i]-48)/ (power(i-dp)));
         }
-        return (res*(-1));
+        return (res*(-1));                                                      //Y se devuelve el numero pero con signo negativo
     }
-    else{
+    else{                                                                       //Si no hay signo, se lo toma como positivo
         while((num[i] != '\0')){
             if(num[i] == '.'){
                 dp = i;
