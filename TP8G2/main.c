@@ -1,9 +1,19 @@
-/* 
- * File:   main.c
- * Author: Grupo 2
- *
- * Created on May 15, 2019, 8:35 PM
- */
+/***************************************************************************//**
+  @file     +main.c+
+  @brief    +Calculadora. Realiza operaciones de suma resta. multiplicación,
+            división y potencia con números en formato punto flotante. Permite colocar
+            el signo de cada número. 
+            Ej. 1: +.12*-10
+            Ej. 2: -018.010/150.80
+            Se pueden realizar múltiples operaciones seguidas y se puede "apagar"
+            la calculadora presionado 'X' (mayúscula).
+                                                                              
+  @author   Grupo 2. 
+            Alejo Figueroa
+            Olivia de Vincenti
+            Pablo Gonzalez
+            Brenda Mattaloni Varona
+ ******************************************************************************/
 
 #include <stdio.h>
 #include "constants.h"

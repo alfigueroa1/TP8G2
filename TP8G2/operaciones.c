@@ -1,10 +1,28 @@
+/***************************************************************************//**
+  @file     +operaciones.h+
+  @brief    +contiene las operaciones matemáticas+
+  @author   +Grupo 2+
+ ******************************************************************************/
+
+/*******************************************************************************
+ * INCLUDE HEADER FILES
+ ******************************************************************************/
 #include "operaciones.h" 
+
+
+/*******************************************************************************
+ * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
+ ******************************************************************************/
 static float ln(float x);
 static float ln_1_2(float y);
 static float expo_e (float x);
 static float expo_0_1(float x);
 
-
+/*******************************************************************************
+ *******************************************************************************
+                        GLOBAL FUNCTION DEFINITIONS
+ *******************************************************************************
+ ******************************************************************************/
 //Esta funcion toma como parametros dos numeros del tipo float.
 //Devuelve la suma de ambos.
 float sum(float a, float b){
@@ -51,7 +69,12 @@ float expo(float base, float exp) {
 	}
 }
  
-float ln(float x) {
+/*******************************************************************************
+ *******************************************************************************
+                        GLOBAL FUNCTION DEFINITIONS
+ *******************************************************************************
+ ******************************************************************************/
+static float ln(float x) {
 	int count;
 	float y = x;
 	float lny;
@@ -67,7 +90,7 @@ float ln(float x) {
 }
 
 
-float ln_1_2(float y){
+static float ln_1_2(float y){
 	float sn0 = 0.0;				//se calcula el logaritmo natural de y usando su serie de Taylor con una sustitución
 	float denom = NINIT;			//esta operacion solo es valida para valores de y entre 1 y 2 (radio de convergencia)
 	float term = FORM_LN (y);
@@ -85,7 +108,13 @@ float ln_1_2(float y){
 
 }
 
-float expo_e (float x){
+/*******************************************************************************
+ *******************************************************************************
+                        LOCAL FUNCTION DEFINITIONS
+ *******************************************************************************
+ ******************************************************************************/
+
+static float expo_e (float x){
 	int count;
 	int a = x;						//trunco el valor de x
 	float b = x - a;				//x = a + b => e^x = e^(a+b) => e^x = e^(a)*e^(b)
@@ -96,7 +125,7 @@ float expo_e (float x){
 	return ex*expo_0_1(b);
 }
 
-float expo_0_1(float x){			//se calcula usando su serie de Taylor centrada en 0
+static float expo_0_1(float x){			//se calcula usando su serie de Taylor centrada en 0
 	int n = 1, count;				//solo es valida para 0<x<1 (radio de convergencia)
 	float ni, nf;
 	float y;

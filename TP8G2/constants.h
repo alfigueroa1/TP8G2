@@ -1,23 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   constants.h
- * Author: HP
- *
- * Created on May 15, 2019, 9:00 PM
- */
+/***************************************************************************//**
+  @file     +Nombre del archivo (ej: template.h)+
+  @brief    +Descripcion del archivo+
+  @author   +Nombre del autor (ej: Salvador Allende)+
+ ******************************************************************************/
 
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+/*******************************************************************************
+ * CONSTANT AND MACRO DEFINITIONS USING #DEFINE
+ ******************************************************************************/
 #define MAX_OPERATORS 5
-
-
-
 
 #endif /* CONSTANTS_H */
 
