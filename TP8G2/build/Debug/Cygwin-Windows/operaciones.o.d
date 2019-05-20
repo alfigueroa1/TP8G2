@@ -1,6 +1,3 @@
-build/Debug/Cygwin-Windows/operaciones.o: operaciones.c operaciones.h \
- constantes.h
+build/Debug/Cygwin-Windows/operaciones.o: operaciones.c operaciones.h
 
 operaciones.h:
-
-constantes.h:

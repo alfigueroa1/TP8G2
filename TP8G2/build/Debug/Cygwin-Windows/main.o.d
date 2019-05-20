@@ -1,8 +1,8 @@
-build/Debug/Cygwin-Windows/main.o: main.c input.h operaciones.h \
- constantes.h
+build/Debug/Cygwin-Windows/main.o: main.c constants.h input.h \
+ operaciones.h
+
+constants.h:
 
 input.h:
 
 operaciones.h:
-
-constantes.h:

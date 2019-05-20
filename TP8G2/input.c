@@ -163,35 +163,32 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 break;
                 
             case ERROR: 
+                clrbuffer;
                 return 0;                                                       //denota entrada inválida.
                 break;
                 
             default:                                                            //default defensivo
+                clrbuffer;
                 return 0;
                 break;
         }
     }
-    
-    if(!maxlong) {                                                               //si se excedió el máximo la entrada es inválida
-        clrbuffer();
+    //clrbuffer();
+    if(!maxlong)                                                                //si se excedió el máximo la entrada es inválida
         return 0;                                                            
-    }
     
-    else if(cod_error) {                                                               //Si está activiado el código de error la entrada es inválida.
-        clrbuffer();
+    if(cod_error)                                                               //Si está activiado el código de error la entrada es inválida.
         return 0;
-    }
     
-    else if(!(num1(*(p-1))&&num2(*(p-1)))) {                                           //Si el último caracter ingresado no es un número, la entrada es inválida.
-        clrbuffer();
+    if(!(num1(*(p-1))&&num2(*(p-1))))                                           //Si el último caracter ingresado no es un número, la entrada es inválida.
         return 0;
-    }
+    
     *p++ = '\0';                                                                //Agrega el terminador a la segunda cadena
     return 1;
 }
 
 //clrbuffer limpia el buffer después de detectar un error.
-static void clrbuffer(void) {    
+static void clrbuffer() {    
     while(getchar() != 'n') { }
 }
 
