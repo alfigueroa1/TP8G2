@@ -21,7 +21,7 @@ int main(void) {
     float x,y;
     char op = 0;
     
-    //Incicializacion de arreglo Operators
+    //Incicializacion de arreglo operators
     operators[0] = '+';
     operators[1] = '-';
     operators[2] = '*';
