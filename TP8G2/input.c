@@ -22,6 +22,7 @@
 static int getInput(char *a, char *b, int maxlong, char *op);
 static float conv2float (char *num);                                              //Esta funcion convierte un arreglo de tipo char que contiene un numero signado a un float
 static int power(int a);                                                          //Esta funcion devuelve 10 elevado a la a
+static void clrbuffer();                                                          
 
 /*******************************************************************************
  *******************************************************************************
@@ -162,15 +163,17 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 break;
                 
             case ERROR: 
+                clrbuffer;
                 return 0;                                                       //denota entrada inválida.
                 break;
                 
             default:                                                            //default defensivo
+                clrbuffer;
                 return 0;
                 break;
         }
     }
-    
+    clrbuffer();
     if(!maxlong)                                                                //si se excedió el máximo la entrada es inválida
         return 0;                                                            
     
@@ -182,6 +185,11 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
     
     *p++ = '\0';                                                                //Agrega el terminador a la segunda cadena
     return 1;
+}
+
+//clrbuffer limpia el buffer después de detectar un error.
+static void clrbuffer() {    
+    while(getchar() != 'n') { }
 }
 
 //Esta funcion convierte un arreglo de un numero decimal a float
