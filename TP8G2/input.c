@@ -38,7 +38,6 @@ void input (float *a , float *b, char *c) {
         *b = conv2float(arr2);
     }
     else {
-        printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
         input (a , b, c);                                                           //levanta nueva entrada.
     }
     return;
@@ -164,25 +163,32 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 
             case ERROR: 
                 clrbuffer;
+                printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
                 return 0;                                                       //denota entrada inválida.
                 break;
                 
             default:                                                            //default defensivo
                 clrbuffer;
+                printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
                 return 0;
                 break;
         }
     }
-    //clrbuffer();
-    if(!maxlong)                                                                //si se excedió el máximo la entrada es inválida
+
+    if(!maxlong){                                                              //si se excedió el máximo la entrada es inválida
+        printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
+        
         return 0;                                                            
-    
-    if(cod_error)                                                               //Si está activiado el código de error la entrada es inválida.
+    }
+    else if(cod_error){                                                               //Si está activiado el código de error la entrada es inválida.
+        printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
+        clrbuffer;
         return 0;
-    
-    if(!(num1(*(p-1))&&num2(*(p-1))))                                           //Si el último caracter ingresado no es un número, la entrada es inválida.
+    }
+    else if(!(num1(*(p-1))&&num2(*(p-1)))) {                                           //Si el último caracter ingresado no es un número, la entrada es inválida.
+        printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
         return 0;
-    
+    }
     *p++ = '\0';                                                                //Agrega el terminador a la segunda cadena
     return 1;
 }
