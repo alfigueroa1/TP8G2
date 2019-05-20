@@ -56,7 +56,7 @@ void input (float *a , float *b, char *c) {
 //Devuelve un 0 si hubo un error y un 1 sino.
 static int getInput(char *a, char *b, int maxlong, char *op) {
     enum estados{INIT , SIGN , ENT , DEC , OP , ERROR};
-    int c, cod_error=0, estado = INIT;
+    int c, cod_error=1, estado = INIT;
     char *p;
     *op = 0;
     while((c = getchar()) != '\n' && maxlong--) {                               //Toma todos los caracteres hasta el máximo establecido.
@@ -143,7 +143,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
             case OP:
                 *p++ = '\0';                                                    //Agregamos el terminador de la cadena del primer operando.
                 p = b;                                                          //Modificamos el segundo arreglo.
-                
+                cod_error = 0;
                 if (c == '-' || c == '+') {                                     //Si ingresa un signo, los guardamos y pasamos a estado SIGN.
                     *p++ = c;
                     estado = SIGN;
