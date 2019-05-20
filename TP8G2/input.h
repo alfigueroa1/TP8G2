@@ -14,6 +14,12 @@
 /*******************************************************************************
  * FUNCTION PROTOTYPES WITH GLOBAL SCOPE
  ******************************************************************************/
+/**
+ * @brief input: levanta la entrada del usuario
+ * @param param1 puntero al primer operando
+ * @param param2 puntero al segundo operando
+ * @return puntero al operador
+*/
 void input (float *a , float *b, char *c);
 
 

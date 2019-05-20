@@ -1,6 +1,6 @@
 /*******************************************************************************
   @file     +input.c+
-  @brief    +Levanta la entrada, la valida y la convierte.+
+  @brief    +Levanta la entrada, la valida y la convierte a float.+
   @author   +GRUPO 2+
  ******************************************************************************/
 
@@ -20,8 +20,8 @@
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
 static int getInput(char *a, char *b, int maxlong, char *op);
-static float conv2float (char *num);   //Esta funcion convierte un arreglo de tipo char que contiene un numero signado a un float
-static int power(int a);                //Esta funcion devuelve 10 elevado a la a
+static float conv2float (char *num);                                              //Esta funcion convierte un arreglo de tipo char que contiene un numero signado a un float
+static int power(int a);                                                          //Esta funcion devuelve 10 elevado a la a
 
 /*******************************************************************************
  *******************************************************************************
@@ -29,16 +29,16 @@ static int power(int a);                //Esta funcion devuelve 10 elevado a la 
  *******************************************************************************
  ******************************************************************************/
 void input (float *a , float *b, char *c) {
-    int maxlong = 30;
-    char arr1[maxlong];
+    const int maxlong = 30;                                                         //maxima cantidad de caracteres por numero.
+    char arr1[maxlong];                                                             //crea arreglos para los numeros.
     char arr2[maxlong];
-    if(getInput(arr1,arr2,maxlong,c)){
-        *a = conv2float(arr1);
+    if(getInput(arr1,arr2,maxlong,c)){                                              //si la entrada es válida.
+        *a = conv2float(arr1);                                                      //convierte cada arreglo al respectivo número en punto flotante.
         *b = conv2float(arr2);
     }
     else {
-        printf("Error. Ingrese todo de nuevo.\n");
-        input (a , b, c);
+        printf("Error. Ingrese todo de nuevo.\n");                                  //si la entrada fue inválida.
+        input (a , b, c);                                                           //levanta nueva entrada.
     }
     return;
 }
@@ -59,124 +59,124 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
     int c, estado = INIT;
     char *p;
     *op = 0;
-    while((c = getchar()) != '\n' && maxlong--) {
+    while((c = getchar()) != '\n' && maxlong--) {                               //Toma todos los caracteres hasta el máximo establecido.
         switch (estado) {
             case INIT:
-                p = a;
-    
-                if(num1(c) && num2(c)) {
+                p = a;                                                          //modificamos el primer arreglo.
+                if(num1(c) && num2(c)) {                                        //Si ingresa un numero lo guardamos y pasamos a estado ENT.                      
                     *p++ = c;
                     estado = ENT;
                 }
-                else if(c == '.') {
+                else if(c == '.') {                                             //Si ingresa un punto lo guardamos y pasamos a estado DEC.
                     *p++ = c;
                     estado = DEC;
                 }
-                else if(c == '-' || c == '+') {
+                else if(c == '-' || c == '+') {                                 //Si ingresa un signo, lo guardamos y pasamos a estado SIGN.
                     *p++ = c;
                     estado = SIGN;
                 }
-                else if(c == 'X'){
+                else if(c == 'X'){                                              //Si ingresa una X se corta la ejecución del programa.
                     *op = 'X';
                     return 1;
                 }
-                else {
+                else {                                                          //En cualquier otro caso, la entra es inválida.
                     estado = ERROR;
                 }
                 break;
                 
-            case SIGN:
-                if (num1(c)&&num2(c)) {
+            case SIGN:                                                          
+                if (num1(c)&&num2(c)) {                                         //Si ingresa un número lo guardamos y pasamos a estado ENT.
                    *p++ = c; 
                    estado = ENT;
                 }
-                else if (c == '.') {
+                else if (c == '.') {                                            //Si ingresa un punto lo guardamos y pasamos a estado DEC.
                     *p++ = c;
                     estado = DEC;
                 } 
-                else {
+                else {                                                          //En cualquier otro caso, la entrada es inválida.
                     estado = ERROR;
                 }
                 break;
                 
-            case ENT:
-                if (num1(c)&&num2(c)) {
+            case ENT:                                                           
+                if (num1(c)&&num2(c)) {                                         //Si ingresa un número lo guardamos y nos quedamos en estado ENT.
                     *p++ = c;
                 }
-                else if (c == '.') {
+                else if (c == '.') {                                            //Si ingresa un punto lo guardamos y pasamos a estado DEC.
                     *p++ = c;
                     estado = DEC;
                 }
                 else if (c == '+' || c== '-' || c == '*' || c == '/' || c == '^' || c == 'E' || c == 'e') {
-                    if (*op != 0) {
+                    if (*op != 0) {                                             //Si ingresa un operador y  había operador, activamos el código de error y la entrada no es válida.
                         estado = ERROR;
-                        maxlong =0; //codigo de error
+                        maxlong =0;     //codigo de error
                     }
-                    else {
+                    else {                                                      //Si ingresa un operador y no había operador, lo guardamos y pasamos a estado OP.
                         *op = c;
                         estado = OP;
                     }
                 }
-                else {
+                else {                                                          //En cualquier otro caso, la entrada es inválida.
                     estado = ERROR;
                 }
                 break;
                 
             case DEC:
-                if(num1(c)&&num2(c)) {
+                if(num1(c)&&num2(c)) {                                          //Si se ingresa un número los guardamos y nos quedamos en estado DEC.
                     *p++ = c;
                 }
                 else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e' || c == 'E') {
-                    if (*op != 0) {
+                    if (*op != 0) {                                             //Si ingresa un operador y  había operador, activamos el código de error y la entrada no es válida.
                         estado = ERROR;
-                        maxlong = 0;    //codigo de error
+                        maxlong = 0;    //codigo de error                       
                     }
-                    else {
+                    else {                                                      //Si ingresa un operador y no había operador, lo guardamos y pasamos a estado OP.
                         *op = c;
                         estado = OP;
                     }
                 }
-                else {
+                else {                                                          //En cualquier otro caso, la entrada es inválida.
                     estado = ERROR;
                 }
                 break;
                 
             case OP:
-                *p++ = '\0';
-                p = b;
-                if (c == '-' || c == '+') {
+                *p++ = '\0';                                                    //Agregamos el terminador de la cadena del primer operando.
+                p = b;                                                          //Modificamos el segundo arreglo.
+                
+                if (c == '-' || c == '+') {                                     //Si ingresa un signo, los guardamos y pasamos a estado SIGN.
                     *p++ = c;
                     estado = SIGN;
                 }
-                else if (num1(c)&&num2(c)) {
+                else if (num1(c)&&num2(c)) {                                    //Si ingresa un número lo guardamos y pasamos a estado ENT.
                     *p++ = c;
                     estado = ENT;
                 }
-                else if (c == '.') {
+                else if (c == '.') {                                            //Si ingresa un punto lo guardamos y pasamos a estado DEC.
                     *p++ = c;
                     estado = DEC;
                 }
-                else {
+                else {                                                          //En cualquier otro caso, la entrada es inválida.
                     estado = ERROR;
                 }
                 break;
                 
-            case ERROR:
-                estado = INIT;
-                return 0;
+            case ERROR: 
+                return 0;                                                       //denota entrada inválida.
                 break;
                 
-            default: 
-                estado = INIT; 
+            default:                                                            //default defensivo
                 return 0;
                 break;
         }
     }
-    if(!maxlong)
+    
+    if(!maxlong)                                                                //si se excedió el máximo la entrada es inválida
+        return 0;                                                               
+    
+    if(!(num1(*(p-1))&&num2(*(p-1))))                                           //Si el último caracter ingresado no es un número, la entrada es inválida.
         return 0;
-    if(!(num1(*(p-1))&&num2(*(p-1))))
-        return 0;
-    *p = '\0';
+    *p++ = '\0';                                                                //Agrega el terminador a la segunda cadena
     return 1;
 }
 
