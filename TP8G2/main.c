@@ -5,18 +5,17 @@
  * Created on May 15, 2019, 8:35 PM
  */
 
+/*******************************************************************************
+ * INCLUDE HEADER FILES
+ ******************************************************************************/
 #include <stdio.h>
-#include "constants.h"
 #include "input.h"
 #include "operaciones.h"
+#include "const-y-vars.h"
 
-
-float calcRes(float x, float y, char op);
-
-//Arreglos recomendados por la catedra
-char operators[MAX_OPERATORS];
-float (* actions[MAX_OPERATORS]) (float, float);
-
+/*******************************************************************************
+ * MAIN
+ ******************************************************************************/
 int main(void) {
     float x,y;
     char op = 0;
@@ -33,6 +32,7 @@ int main(void) {
     actions[2] = &mul;
     actions[3] = &div;
     actions[4] = &expo;
+    
     while(op != 'X') {
         input(&x,&y,&op);    //Se recibe el input del usuario
         if(op == 'X'){
@@ -43,16 +43,5 @@ int main(void) {
     return 0;
 }
 
-//Esta funcion toma como parametros dos numeros del tipo float y una operacion
-// Devuelve el resultado de la operacion en tipo float
-float calcRes(float x, float y, char op){
-    float res = 0;
-    int i;
-    for(i = 0; operators[i] != op; i++){       //Se identifica la operacion deseada
-    }
-    res = actions[i](x,y);                     //Se llama a la funcion de dicha operacion
-    
-    return res;
-}
 
 

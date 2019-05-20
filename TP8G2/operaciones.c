@@ -47,4 +47,16 @@ float expo(float a, float b){   //funca para b entero
     return c;
 }
 
+//Esta funcion toma como parametros dos numeros del tipo float y una operacion
+// Devuelve el resultado de la operacion en tipo float
+float calcRes(float x, float y, char op){
+    float res = 0;
+    int i;
+    for(i = 0; operators[i] != op; i++){       //Se identifica la operacion deseada
+    }
+    res = actions[i](x,y);                     //Se llama a la funcion de dicha operacion
+    
+    return res;
+}
+
 

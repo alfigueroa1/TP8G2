@@ -8,6 +8,11 @@
 #define	OPERACIONES_H
 
 /*******************************************************************************
+ * INCLUDE HEADER FILES
+ ******************************************************************************/
+#include "const-y-vars.h"
+
+/*******************************************************************************
  * FUNCTION PROTOTYPES WITH GLOBAL SCOPE
  ******************************************************************************/
 /**
@@ -50,6 +55,13 @@ float div(float a, float b);
 */
 float expo(float a, float b);
 
-
+/**
+ * @brief calcRes: calcula el resultado
+ * @param param1 operando 1
+ * @param param2 operando 2 
+ * @param param2 operacion 
+ * @return resultado
+*/
+float calcRes(float x, float y, char op);
 #endif	/* OPERACIONES_H */
 
