@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>const-y-vars.h</itemPath>
+      <itemPath>constantes.h</itemPath>
       <itemPath>input.h</itemPath>
       <itemPath>operaciones.h</itemPath>
     </logicalFolder>
@@ -44,7 +44,7 @@
           <standard>3</standard>
         </cTool>
       </compileType>
-      <item path="const-y-vars.h" ex="false" tool="3" flavor2="0">
+      <item path="constantes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -78,7 +78,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="const-y-vars.h" ex="false" tool="3" flavor2="0">
+      <item path="constantes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="input.c" ex="false" tool="0" flavor2="0">
       </item>

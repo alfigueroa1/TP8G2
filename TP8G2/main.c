@@ -11,7 +11,14 @@
 #include <stdio.h>
 #include "input.h"
 #include "operaciones.h"
-#include "const-y-vars.h"
+#include "constantes.h"
+
+/*******************************************************************************
+ * VARIABLES WITH GLOBAL SCOPE
+ ******************************************************************************/
+//Arreglos recomendados por la catedra
+char operators[MAX_OPERATORS];
+float (* actions[MAX_OPERATORS]) (float, float);
 
 /*******************************************************************************
  * MAIN
