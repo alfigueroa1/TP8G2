@@ -36,13 +36,14 @@ int main(void) {
     operators[1] = '-';
     operators[2] = '*';
     operators[3] = '/';
-    operators[4] = '^';
+    operators[4] = 'e';
     //Incicializacion de arreglo actions
     actions[0] = &sum;
     actions[1] = &sub;
     actions[2] = &mul;
     actions[3] = &div;
     actions[4] = &expo;
+    
     while(op != 'X') {
         input(&x,&y,&op);    //Se recibe el input del usuario
         if(op == 'X'){
