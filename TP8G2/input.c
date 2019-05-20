@@ -37,8 +37,8 @@ void input (float *a , float *b, char *c) {
         *b = conv2float(arr2);
     }
     else {
-        printf("\nError. Ingrese todo de nuevo.\n");
-        void input (float *a , float *b, char *c);
+        printf("Error. Ingrese todo de nuevo.\n");
+        input (a , b, c);
     }
     return;
 }
@@ -58,6 +58,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
     enum estados{INIT , SIGN , ENT , DEC , OP , ERROR};
     int c, estado = INIT;
     char *p;
+    *op = 0;
     while((c = getchar()) != '\n' && maxlong--) {
         switch (estado) {
             case INIT:
@@ -107,8 +108,14 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                     estado = DEC;
                 }
                 else if (c == '+' || c== '-' || c == '*' || c == '/' || c == '^' || c == 'E' || c == 'e') {
-                    estado = OP;
-                    *op = c;
+                    if (*op != 0) {
+                        estado = ERROR;
+                        maxlong =0; //codigo de error
+                    }
+                    else {
+                        *op = c;
+                        estado = OP;
+                    }
                 }
                 else {
                     estado = ERROR;
@@ -120,8 +127,14 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                     *p++ = c;
                 }
                 else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e' || c == 'E') {
-                    estado = OP;
-                    *op = c;
+                    if (*op != 0) {
+                        estado = ERROR;
+                        maxlong = 0;    //codigo de error
+                    }
+                    else {
+                        *op = c;
+                        estado = OP;
+                    }
                 }
                 else {
                     estado = ERROR;
