@@ -8,7 +8,7 @@
  * INCLUDE HEADER FILES
  ******************************************************************************/
 #include "operaciones.h" 
-
+#include <stdio.h>
 
 /*******************************************************************************
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
@@ -50,7 +50,8 @@ float expo(float base, float exp) {
 	float result;
 	float lnbase;
 	if (base < 0.0){
-            lnbase = ln(-base);
+            printf("Error exponencial\n");
+            return 0.0;
 	}
 	else if (base == 0.0){
             return 0;

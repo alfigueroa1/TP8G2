@@ -51,6 +51,7 @@ int main(void) {
             break;
         }
         printf("Result = %f\n", calcRes(x,y,op)); //Se informa el resultado
+        printf("Enter 'X' to quit\n");
     }
     return 0;
 }
