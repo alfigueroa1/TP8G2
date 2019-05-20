@@ -7,7 +7,8 @@
             Ej. 2: -018.010/150.80
             Se pueden realizar múltiples operaciones seguidas y se puede "apagar"
             la calculadora presionado 'X' (mayúscula).
-                                                                              
+            
+            Obs.: Si el exponente no es entero, la potencia está definida solamente para bases no negativas.                                                                 
   @author   Grupo 2. 
             Alejo Figueroa
             Olivia de Vincenti
