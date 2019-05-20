@@ -106,7 +106,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                     *p++ = c;
                     estado = DEC;
                 }
-                else if (c == '+' || c== '-' || c == '*' || c == '/' || c == '^' || c == 'E' || c == 'e') {
+                else if (c == '+' || c== '-' || c == '*' || c == '/' || c == 'e') {
                     if (*op != 0) {                                             //Si ingresa un operador y  había operador, activamos el código de error y la entrada no es válida.
                         estado = ERROR;
                         cod_error = 1;     //codigo de error
@@ -125,7 +125,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 if(num1(c)&&num2(c)) {                                          //Si se ingresa un número los guardamos y nos quedamos en estado DEC.
                     *p++ = c;
                 }
-                else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e' || c == 'E') {
+                else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e') {
                     if (*op != 0) {                                             //Si ingresa un operador y  había operador, activamos el código de error y la entrada no es válida.
                         estado = ERROR;
                         cod_error = 1;    //codigo de error                       
