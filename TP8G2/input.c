@@ -173,7 +173,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 break;
         }
     }
-    clrbuffer();
+    //clrbuffer();
     if(!maxlong)                                                                //si se excedió el máximo la entrada es inválida
         return 0;                                                            
     
