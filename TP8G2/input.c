@@ -56,7 +56,7 @@ void input (float *a , float *b, char *c) {
 //Devuelve un 0 si hubo un error y un 1 sino.
 static int getInput(char *a, char *b, int maxlong, char *op) {
     enum estados{INIT , SIGN , ENT , DEC , OP , ERROR};
-    int c, estado = INIT;
+    int c, cod_error=0, estado = INIT;
     char *p;
     *op = 0;
     while((c = getchar()) != '\n' && maxlong--) {                               //Toma todos los caracteres hasta el máximo establecido.
@@ -109,7 +109,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 else if (c == '+' || c== '-' || c == '*' || c == '/' || c == '^' || c == 'E' || c == 'e') {
                     if (*op != 0) {                                             //Si ingresa un operador y  había operador, activamos el código de error y la entrada no es válida.
                         estado = ERROR;
-                        maxlong =0;     //codigo de error
+                        cod_error = 1;     //codigo de error
                     }
                     else {                                                      //Si ingresa un operador y no había operador, lo guardamos y pasamos a estado OP.
                         *op = c;
@@ -128,7 +128,7 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
                 else if(c == '+' || c== '-' || c == '*' || c == '/' || c == 'e' || c == 'E') {
                     if (*op != 0) {                                             //Si ingresa un operador y  había operador, activamos el código de error y la entrada no es válida.
                         estado = ERROR;
-                        maxlong = 0;    //codigo de error                       
+                        cod_error = 1;    //codigo de error                       
                     }
                     else {                                                      //Si ingresa un operador y no había operador, lo guardamos y pasamos a estado OP.
                         *op = c;
@@ -172,10 +172,14 @@ static int getInput(char *a, char *b, int maxlong, char *op) {
     }
     
     if(!maxlong)                                                                //si se excedió el máximo la entrada es inválida
-        return 0;                                                               
+        return 0;                                                            
+    
+    if(cod_error)                                                               //Si está activiado el código de error la entrada es inválida.
+        return 0;
     
     if(!(num1(*(p-1))&&num2(*(p-1))))                                           //Si el último caracter ingresado no es un número, la entrada es inválida.
         return 0;
+    
     *p++ = '\0';                                                                //Agrega el terminador a la segunda cadena
     return 1;
 }
